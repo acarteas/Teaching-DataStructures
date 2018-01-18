@@ -1,2 +1,1 @@
-# Teaching-DataStructures
-Course repository for data structures course
+# Spring 2018 CS 211 - Data Structures
