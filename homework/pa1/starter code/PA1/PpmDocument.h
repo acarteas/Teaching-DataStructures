@@ -89,7 +89,7 @@ public:
         _width = w;
         for (auto& row : _pixels)
         {
-            _pixels.resize(_width);
+            row.resize(_width);
         }
         
     }
