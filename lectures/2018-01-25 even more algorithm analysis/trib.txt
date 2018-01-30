@@ -32,3 +32,11 @@ for(int i = 0; i < number_of_gens; i++)
 {
     total += (n*(n+1)/2) + n
 }
+
+#v4
+int trib(n):
+   if n = 1 return 1
+   if n = 2 return 2
+   if n = 3 return 3
+   if n = 4 return 5
+   return trib(n - 1) + trib(n - 2) + trib(n - 3) + trib(n - 4)
