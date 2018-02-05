@@ -13,7 +13,7 @@ public:
 	//Accepts a string and a delimiter.  Will use items_found to return the number
 	//of items found as well as an array of strings where each element is a piece of
 	//the original string.
-	static string * split(string text, string delimiter, int &items_found)
+	static vector<string> split(string text, string delimiter)
 	{
 		//vectors are dynamically expanding arrays
 		vector<string> pieces;
@@ -40,16 +40,7 @@ public:
 		//handle that now.
 		string piece = text.substr(start, location - start);
 		pieces.push_back(piece);
-
-		//convert from vector into an array of strings
-		int size = pieces.size();
-		string *pieces_str = new string[size];
-		for(int i = 0; i < size; i++)
-		{
-			pieces_str[i] = pieces.at(i);
-		}
-		items_found = size;
-		return pieces_str;			
+		return pieces;
 	}
 };
 
