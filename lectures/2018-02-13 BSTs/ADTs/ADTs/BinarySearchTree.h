@@ -15,11 +15,57 @@ protected:
     BinaryNode<T> *_root = nullptr;
     int _size = 0;
 
+    //helper function for add element call (iterative version)
+    virtual BinaryNode<T>* addElementHelperIter(BinaryNode<T> *node,
+        const T& item)
+    {
+        //need variable to track where we're presently at in our tree
+        BinaryNode<T>* current = node;
+        BinaryNode<T>* previous = current;
+        while (current != nullptr)
+        {
+            if (item < current)
+            {
+                previous = current;
+                current = current->getLeftChild();
+            }
+            else
+            {
+                previous = current;
+                current = current->getRightChild();
+            }
+        }
+
+        //at this point, current MUST be nullptr
+        //if value is less than put on left of prev, otherwise put on right
+    }
+
     //helper function for add element recursive call
     virtual BinaryNode<T>* addElementHelper(BinaryNode<T> *node, 
         const T& item)
     {
-        
+        //were we passed a null node?
+        if (node == nullptr)
+        {
+            //create a new node
+            BinaryNode<T>* new_node = new BinaryNode<T>{ item };
+            return new_node;
+        }
+
+        //is the value greater than or less than current node's value
+        if (item < node->getValue())
+        {
+            //belongs to the left of node
+            BinaryNode<T>* left = addElementHelper(node->getLeftChild(), item);
+            node->setLeftChild(left);
+        }
+        else
+        {
+            //belongs on the right of node
+            BinaryNode<T>* right = addElementHelper(node->getRightChild(), item);
+            node->setRightChild(right);
+        }
+        return node;
     }
 
 	//find the largest node in the supplied subtree headed by *node
@@ -163,7 +209,7 @@ public:
 
     //returns the root pointer for learners to play around with.  Probably shouldn't exist 
     //is a real BST.
-    virtual const BinaryNode<T>* getRoot()
+    virtual BinaryNode<T>* getRoot()
     {
         return _root;
     }

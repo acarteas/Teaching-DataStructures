@@ -71,19 +71,22 @@ private:
 public:
     void virtual traverse(BinaryNode<T> *node)
     {
-        //ensure data integrity
+        //In-order traversal outputs the tree in sorted
+        //order
+
+        //null check
         if (node == nullptr)
         {
             return;
         }
 
-        //Left
+        //LEFT
         traverse(node->getLeftChild());
 
-        //Us
+        //US
         items.push_back(node->getValue());
 
-        //Right
+        //RIGHT
         traverse(node->getRightChild());
     }
 
