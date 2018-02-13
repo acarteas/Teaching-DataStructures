@@ -19,31 +19,7 @@ protected:
     virtual BinaryNode<T>* addElementHelper(BinaryNode<T> *node, 
         const T& item)
     {
-        //Base case: Empty tree
-        if (node == nullptr)
-        {
-            node = new BinaryNode<T>{};
-            node->setValue(item);
-            return node;
-        }
-
-        //Invariant: node cannot be null
-        //BST rules: smaller than on left, >= on right
-        if (item < node->getValue())
-        {
-            //item belongs on the left
-            BinaryNode<T> *left_child = addElementHelper(node->getLeftChild(), item);
-            node->setLeftChild(left_child);
-        }
-        else
-        {
-            //item belongs on the right
-            BinaryNode<T> *right_child = addElementHelper(node->getRightChild(), item);
-            node->setRightChild(right_child);
-        }
-
-        //maintain recursive integrity by returning node
-        return node;
+        
     }
 
 	//find the largest node in the supplied subtree headed by *node
