@@ -4,11 +4,6 @@
 using namespace std;
 
 //PA #3 Checkin TODO: Implement!
-void walk(TrieNode *node, vector<string> &words, string current_word)
-{
-}
-
-//PA #3 Checkin TODO: Implement!
 void search(TrieNode *node, vector<string> &words, string current_word, string prefix)
 {
 }
@@ -38,14 +33,6 @@ void pa3CheckinDriver()
     root->getChild('a')->setChild('g', new TrieNode{ 'g' });
     root->getChild('a')->getChild('g')->setChild('e', new TrieNode{ 'e' });
     root->getChild('a')->getChild('g')->getChild('e')->setChild('$', new TrieNode{ '$' });
-
-    vector<string> all_words{};
-    walk(root, all_words, "");
-    //Expect: APPLE, APPLES, AGE
-    for (auto word : all_words)
-    {
-        cout << word << endl;
-    }
 
     //search tree
     //EXPECTED: APPLE, APPLES
