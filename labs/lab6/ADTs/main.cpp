@@ -146,7 +146,7 @@ int main(void)
 	cout << endl;
     
     //rotate again just for fun
-    rotated = rotateLeft(tree.getRoot());
+    rotated = rotateLeft(rotated);
     traversal.traverse(rotated);
     return 0;
 }
