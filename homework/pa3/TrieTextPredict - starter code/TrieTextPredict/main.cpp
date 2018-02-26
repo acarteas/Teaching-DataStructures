@@ -4,8 +4,35 @@
 using namespace std;
 
 //PA #3 Checkin TODO: Implement!
+/*
+	Node is wherever we're at in tree
+	Words is a list of completed words that we've found
+	current_word is the word we're presently constructing
+	prefix is the word that we're working on
+*/
 void search(TrieNode *node, vector<string> &words, string current_word, string prefix)
 {
+	//example: build a word from prefix and eventually place into words vector
+	//when we start, current word is empty
+
+	//before we start, prefix is not empty
+	if (prefix.length() > 0)
+	{
+		//first, peel off first letter from prefix
+		char letter = prefix[0];
+
+		//bring the prefix over into current word being build
+		current_word.append(string{ letter });
+
+		//if this were real, we'd go down each trie path
+		search(node, words, current_word, prefix.substr(1));
+	}
+	else
+	{
+		//if prefix is empty, add to list of words
+		words.push_back(current_word);
+	}
+	
 }
 
 //NOTE: You do not have to modify this function.  Its purpose is to call your checkin code
