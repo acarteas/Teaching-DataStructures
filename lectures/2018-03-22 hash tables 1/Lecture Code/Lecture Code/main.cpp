@@ -21,10 +21,11 @@ unsigned long keyFromStringV2(string s) {
     unsigned long hash = 1;
     for (int i = 0; i < s.size(); i++) {
         unsigned long char_value = (int)s[i];
-        unsigned long temp = (pow(2, char_value) * char_value * char_value + char_value);
+        unsigned long temp = char_value << 2;
+        temp = char_value * char_value * temp;
+        temp += char_value;
         temp *= (i + 1);
-        hash = temp;
-        //hash = temp <<< 2;
+        hash = temp << 2;
     }
     return hash;
 }
