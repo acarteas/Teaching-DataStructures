@@ -33,6 +33,8 @@ public:
 
     }
 
+    virtual ~GraphNode() {}
+
     Value &getValue()
     {
         return _value;
