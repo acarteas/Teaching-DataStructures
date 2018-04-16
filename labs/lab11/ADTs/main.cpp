@@ -11,6 +11,7 @@ using namespace std;
 ListNode<int>* reverseLinkedList(ListNode<int> *front)
 {
     //Task #1 TODO: implement!
+	return nullptr;
 }
 
 //Removes all duplicats from a linked list
@@ -18,12 +19,14 @@ ListNode<int>* reverseLinkedList(ListNode<int> *front)
 ListNode<int>* removeDuplicates(ListNode<int> *front)
 {
     //Task #2 TODO: implement
+	return nullptr;
 }
 
 //reorders the supplied binary search tree such that the supplied node is the new root of the tree
 BinarySearchTree<int>* makeNewRoot(BinarySearchTree<int> *tree, BinaryNode<int> *new_root)
 {
     //Task #3 TODO: implement
+	return nullptr;
 }
 
 //Converts a roman numeral into its integer representation
@@ -34,6 +37,7 @@ BinarySearchTree<int>* makeNewRoot(BinarySearchTree<int> *tree, BinaryNode<int> 
 int romanToInt(string numeral)
 {
     //Task #4 TODO: implement 
+	return -1;
 }
 
 /*
@@ -45,6 +49,7 @@ a. e.g. 11011101111 -> 11011111111 (length = 8)
 string bitFlip(string sequence)
 {
     //TASK #5 TODO: implement!
+	return sequence;
 }
 
 int main(void)
