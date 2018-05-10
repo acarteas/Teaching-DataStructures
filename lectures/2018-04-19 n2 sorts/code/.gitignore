@@ -1,0 +1,8 @@
+/x64
+/*.db
+/Debug
+/*.opendb
+/.vs
+/desktop.ini
+/ADTs/desktop.ini
+/Release
