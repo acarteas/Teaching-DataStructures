@@ -1,1 +1,0 @@
-NOTE: In order to see a difference in hashing functions, students will need to modify HasherFactor.h adding their custom hashing functions to the copyHasher method.
