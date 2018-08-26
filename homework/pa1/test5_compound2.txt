@@ -1,0 +1,15 @@
+3
+bread
+3
+cheese
+1
+cheese
+3
+3
+2
+cheese
+5
+5
+3
+cherries
+4

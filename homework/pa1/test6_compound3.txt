@@ -1,0 +1,15 @@
+3
+apples
+3
+milk
+3
+bread
+3
+candy
+3
+cheese
+3
+oranges
+3
+cherries
+4
