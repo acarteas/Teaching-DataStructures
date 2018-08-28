@@ -5,6 +5,7 @@ bool has_cycle(SinglyLinkedListNode* head) {
     SinglyLinkedListNode* one = head;
     SinglyLinkedListNode* two = head->next;
     
+    //O(N) linear relationship
     while(two != NULL && two->next != NULL)
     {
         one = one->next;

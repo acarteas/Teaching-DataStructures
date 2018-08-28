@@ -17,18 +17,36 @@ void testPrimes()
 	}
 }
 
+for(int i = 0; i < n; i++)
+{
+	cout << "Hello, World!" << endl;
+}
+
+for(int i = 0; i < n; i++)
+{
+	for(int j = 0; j < i; j++)
+	{
+		cout << "Hello, World!" << endl;
+	}
+}
+
 void testTwinPrimes()
 {
 	int lower, upper;
 	getInput(lower, upper);
 	int nMinOne = 0;
 
+	//! varies by UPPER
 	for (int n = lower; n < upper; n++)
 	{
 		bool status = true;
 		int m = 2;
+
+		//! varies by N (lower, 2, 3, ..., upper)
 		for (m; m < n; m++)
 		{
+			//When analyzing nested for loops, concentrate on code
+			//inside.
 			if (n % m == 0)
 				status = false;
 		}
