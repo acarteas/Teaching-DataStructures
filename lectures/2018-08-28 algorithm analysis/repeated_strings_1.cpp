@@ -18,6 +18,7 @@ long repeatedString(string s, long n)
     {
        vector <char> poo(s.begin(), s.end());
 
+        //linear loop tied to N
         for (long i = SIZE; i < n; i += SIZE)
         {
             copy(s.begin(), s.end(), back_inserter(poo));
@@ -25,6 +26,8 @@ long repeatedString(string s, long n)
             poo.resize(n);
         long i = 0;
         long j = 0;
+
+        //linear loop also tied to N
         for (long i =0 ; i < poo.size(); i++)
         {
             if(poo[i] == 'a')

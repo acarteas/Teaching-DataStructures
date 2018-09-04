@@ -52,6 +52,10 @@ void task2()
 			string line;
 			getline(data, line, ',');
 			cout << line << endl;
+            getline(data, line, ',');
+            cout << line << endl;
+            getline(data, line);
+            cout << line << endl;
 		}
 	}
 	data.close();
@@ -123,6 +127,6 @@ void processPPM()
 int main(void)
 {
 	//task1();
-	//task2();
-	processPPM();
+	task2();
+	//processPPM();
 }
