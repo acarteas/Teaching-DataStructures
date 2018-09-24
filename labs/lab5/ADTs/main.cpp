@@ -7,6 +7,19 @@
 
 using namespace std;
 
+class Test
+{
+public:
+	int value;
+};
+
+Test& getTest(Test& t)
+{
+	Test t2;
+	t2.value = 7;
+	return t2;
+}
+
 void mergeTrees()
 {
     BinarySearchTree<int> tree1{};
@@ -46,6 +59,12 @@ void commonAncestor(BinaryNode<int>* tree, int val1, int val2)
 
 int main(void)
 {
+	Test t{};
+	t.value = 10;
+	Test t2 = getTest(t);
+	getTest(t).value = 12;
+	cout << t.value << endl;
+
     BinarySearchTree<int> tree1{};
     BinarySearchTree<int> tree2{};
 
