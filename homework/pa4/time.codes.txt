@@ -1,0 +1,16 @@
+Almost:1110
+than:1101
+was:1011
+not:1111
+nothing:1001
+more:110
+having:10
+annoying:1100
+our:1010
+wasted:0
+time:1000
+it:111
+on:1
+something:100
+worth:11
+wasting:101

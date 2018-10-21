@@ -1,0 +1,16 @@
+were:1110
+the:1101
+knew:1011
+felt:1111
+I:0
+happy:1
+because:10
+wasn’t:1100
+others:1010
+should:1001
+saw:1000
+and:111
+feel:110
+happy,:100
+but:11
+really:101
