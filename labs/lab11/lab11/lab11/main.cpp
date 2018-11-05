@@ -8,11 +8,14 @@
 
 using namespace std;
 
-void buildGraph(vector<vector<int>> &graph, int graph_size, int num_connections)
+void buildGraph(vector<vector<int>> &graph, 
+	int graph_size, 
+	int num_connections)
 {
     srand(time(NULL));
 
-    //zero out graph and ensure that graph is large enough
+    //zero out graph and ensure that graph is 
+	//large enough
     if (graph.size() < graph_size)
     {
         graph.resize(graph_size);
@@ -34,21 +37,55 @@ void buildGraph(vector<vector<int>> &graph, int graph_size, int num_connections)
         int y = rand() % graph_size;
         graph[x][y] = 1;
     }
+
+	//zero out diagonal (do not allow self-connections)
+	for (int i = 0; i < graph_size; i++)
+	{
+		graph[i][i] = 0;
+	}
 }
-DfsTreeNode* buildDfsTree(vector<vector<int>>& graph, int x, int y, unordered_map<int, int>& visited)
+void buildDfsTree(
+	vector<vector<int>>& graph, 
+	int node, 
+	int visit_order,
+	unordered_map<int, int>& visited
+	)
 {
-    return nullptr;
+	
+	return;
 }
 
-vector<int> getArticulationPoints(DfsTreeNode* root)
+void getArticulationPoints(
+	vector<vector<int>>& graph,
+	int node,
+	unordered_map<int, int>& low_values,
+	vector<int>& articulation_points
+)
 {
-    vector<int> result{};
-    return result;
+	
 }
-
 
 int main(void)
 {
     vector<vector<int>> graph{};
-    buildGraph(graph, 10, 50);
+    buildGraph(graph, 5, 0);
+	graph[0][3] = 1;
+	graph[1][2] = 1;
+	graph[1][4] = 1;
+	graph[2][0] = 1;
+	graph[2][1] = 1;
+	graph[2][4] = 1;
+	graph[3][0] = 1;
+	graph[3][1] = 1;
+	graph[3][4] = 1;
+	unordered_map<int, int> visited{};
+	buildDfsTree(graph, 0, 1, visited);
+	unordered_map<int, int> low_values{};
+	vector<int> articulation_points{};
+	getArticulationPoints(
+		graph, 
+		0, 
+		low_values, 
+		articulation_points
+	);
 }
