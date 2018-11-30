@@ -156,8 +156,6 @@ void mergeSortHelper(vector<int>& data, int start_bound, int end_bound)
 
 void quickSortHelper(vector<int>& data, int start_bound, int end_bound)
 {
-    //AC Note: quicksort breaks on infinite recursion due to change on line 210
-    //added >= sign
 
     //base case #1: array of size 1
     if (end_bound - start_bound == 0)
@@ -227,9 +225,9 @@ void quickSortHelper(vector<int>& data, int start_bound, int end_bound)
     {
         quickSortHelper(data, start_bound, i);
     }
-    if (end_bound > i)
+    if (end_bound > i + 1)
     {
-        quickSortHelper(data, i, end_bound);
+        quickSortHelper(data, i + 1, end_bound);
     }
 }
 
