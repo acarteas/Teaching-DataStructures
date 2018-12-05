@@ -156,6 +156,7 @@ void mergeSortHelper(vector<int>& data, int start_bound, int end_bound)
 
 void quickSortHelper(vector<int>& data, int start_bound, int end_bound)
 {
+
     //base case #1: array of size 1
     if (end_bound - start_bound == 0)
     {
@@ -206,7 +207,7 @@ void quickSortHelper(vector<int>& data, int start_bound, int end_bound)
             i++;
         }
         //while j > pivot, decrement j
-        while (data[j] > pivot_value && i < j)
+        while (data[j] >= pivot_value && i < j)
         {
             j--;
         }
@@ -224,9 +225,9 @@ void quickSortHelper(vector<int>& data, int start_bound, int end_bound)
     {
         quickSortHelper(data, start_bound, i);
     }
-    if (end_bound > i)
+    if (end_bound > i + 1)
     {
-        quickSortHelper(data, i, end_bound);
+        quickSortHelper(data, i + 1, end_bound);
     }
 }
 
@@ -308,4 +309,55 @@ void radixSort(vector<int>& data)
     //move data in current buckets back into original array
     data = move(current_buckets[0]);
 }
+
+void percolateDown(vector<int>& heap, int size, int index)
+{
+    //grab references to children
+    int left_index = 2 * index + 1;
+    int right_index = left_index + 1;
+
+    //is it safe to grab the children
+    if (size > left_index)
+    {
+        int largest_child_index = left_index;
+        if (size > right_index)
+        {
+            //in this case, the current index has both children, we must
+            //decide which is more imporant
+            if (heap[left_index] < heap[right_index])
+            {
+                largest_child_index = right_index;
+            }
+        }
+
+        //INVARIANT: at this point largest_child_index is guaranteed to be the
+        //largest of our children
+        if (heap[index] < heap[largest_child_index])
+        {
+            swap(heap, index, largest_child_index);
+            percolateDown(heap, size, largest_child_index);
+        }
+    }
+    
+}
+
+void heapSort(vector<int>& data)
+{
+    //turn data into a heap
+    for (int i = (data.size() / 2) - 1; i >= 0; i--)
+    {
+        percolateDown(data, data.size(), i);
+    }
+
+    //INVARIANT: data is now in max-heap format
+    for (int size = data.size(); size > 0; size--)
+    {
+        //swap data[0] with data[size-1]
+        swap(data, 0, size - 1);
+
+        //rebuild the heap (percolate element 0 into its proper place)
+        percolateDown(data, size - 1, 0);
+    }
+}
+
 #endif // !SORTING_H
