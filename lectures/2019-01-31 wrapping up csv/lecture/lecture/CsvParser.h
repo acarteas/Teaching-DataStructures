@@ -139,6 +139,7 @@ public:
 		delete _quote_state;
 		delete _double_quote_state;
 		delete _end_state;
+		_csv_stream.close();
 	}
 
 	//setter functions allow individual states to alter overall state machine
@@ -185,8 +186,9 @@ public:
 	{
 		//prime loop by grabbing first line in file
 		getline(_csv_stream, _raw_line);
-		while (_csv_stream.good() == true && _raw_line.length() > 0)
+		while (_csv_stream.good() == true || _raw_line.length() > 0)
 		{
+
 			//are we done processing current line or are we at the end state?
 			if (_raw_line.length() == _current_row_position
 				|| _active_state == _end_state)
@@ -205,7 +207,8 @@ public:
 				if (_raw_line.length() == _current_row_position)
 				{
 					//check for dangling comma (empty cell)
-					if (_raw_line[_current_row_position - 1] == ',')
+					if (_current_row_position > 0 
+						&& _raw_line[_current_row_position - 1] == ',')
 					{
 						_current_row.push_back("");
 					}
@@ -214,14 +217,17 @@ public:
 					//and grab a new line
 					_table.push_back(_current_row);
 					_current_row = vector<string>{};
-					_current_row_position = 0;
-					getline(_csv_stream, _raw_line);
+					_current_row_position = 0;			
 
 					//account for end of file
-					if (_csv_stream.good() == false)
+					if (_csv_stream.good() == true)
+					{
+						getline(_csv_stream, _raw_line);
+					}
+					else
 					{
 						break;
-					}
+					}			
 				}
 			}
 			else
@@ -230,6 +236,12 @@ public:
 				_active_state->handle();
 			}
 		}
+		return _table;
+	}
+
+	vector<vector<string>> getTable()
+	{
+		return _table;
 	}
 };
 

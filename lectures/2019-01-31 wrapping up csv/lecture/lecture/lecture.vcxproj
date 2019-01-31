@@ -127,9 +127,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="FullNames.csv" />
+    <None Include="test_output.csv" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CsvParser.h" />
+    <ClInclude Include="CsvWriter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

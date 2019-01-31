@@ -34,9 +34,15 @@
     <None Include="FullNames.csv">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="test_output.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CsvParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CsvWriter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
