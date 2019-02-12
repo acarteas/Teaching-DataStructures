@@ -42,9 +42,10 @@ public:
 		_value = value;
 	}
 
-	void setNext(ListNode<T>* next)
+	ListNode<T>* setNext(ListNode<T>* next)
 	{
 		_next = next;
+		return _next;
 	}
 };
 
