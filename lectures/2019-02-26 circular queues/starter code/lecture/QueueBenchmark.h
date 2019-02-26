@@ -42,7 +42,15 @@ public:
 		start = system_clock::now();
 
 		//TODO: benchmark
-		for (int i = 0; i < fill_size; i++)
+		for (int i = 0; i < fill_size / 2; i++)
+		{
+			queue->enqueue(i);
+		}
+		for (int i = 0; i < fill_size / 4; i++)
+		{
+			queue->dequeue();
+		}
+		for (int i = 0; i < fill_size / 2; i++)
 		{
 			queue->enqueue(i);
 		}

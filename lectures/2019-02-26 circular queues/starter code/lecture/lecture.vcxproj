@@ -131,6 +131,7 @@
     <ClInclude Include="ListQueue.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="QueueBenchmark.h" />
+    <ClInclude Include="StlQueue.h" />
     <ClInclude Include="VectorQueue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

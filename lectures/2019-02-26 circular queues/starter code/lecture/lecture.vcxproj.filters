@@ -41,5 +41,8 @@
     <ClInclude Include="QueueBenchmark.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StlQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
