@@ -3,6 +3,30 @@
 #include <string>
 using namespace std;
 
+BinaryNode<int>* bstAdd(BinaryNode<int>* node, int value)
+{
+	//null node indicates time to create a new item in our tree
+	if (node == nullptr)
+	{
+		node = new BinaryNode<int>{ value };
+		return node;
+	}
+
+	//if not null, send result to child based on relation of node's value
+	//and new value
+	if(value >= node->getValue())
+	{
+		node->setRight(bstAdd(node->getRight(), value));
+	}
+	else
+	{
+		node->setLeft(bstAdd(node->getLeft(), value));
+	}
+
+	//to maintian recursive correctness, always return a BinaryNode<T>*
+	return node;
+}
+
 bool find(BinaryNode<int>* start, const int& to_find)
 {
 	//recursive base case answers the question, 
@@ -82,30 +106,12 @@ bool isFull(BinaryNode<int>* start)
 
 int main(void)
 {
-	BinaryNode<int>* root = new BinaryNode<int>{ 5 };
-	root->setLeft(new BinaryNode<int>{ 12 });
-	root->setRight(new BinaryNode<int>{ 4 });
-	root->getLeft()->setLeft(new BinaryNode<int>{ 11 });
-	root->getLeft()->setRight(new BinaryNode<int>{ 18 });
-	root->getRight()->setLeft(new BinaryNode<int>{ 10 });
-	root->getRight()->setRight(new BinaryNode<int>{7});
-	root->getRight()
-		->getLeft()
-		->setLeft(new BinaryNode<int>{3});
-	root->getRight()
-		->getLeft()
-		->setRight(new BinaryNode<int>{ 9 });
-	root->getRight()
-		->getRight()
-		->setRight(new BinaryNode<int>{ 15 });
-	root->getRight()
-		->getRight()
-		->getRight()
-		->setLeft(new BinaryNode<int>{ 20 });
-	root->getRight()
-		->getRight()
-		->getRight()
-		->setRight(new BinaryNode<int>{ 22 });
-
-	cout << find(root, 7) << endl;
+	BinaryNode<int>* root = new BinaryNode<int>{ 100 };
+	bstAdd(root, 25);
+	bstAdd(root, 75);
+	bstAdd(root, 10);
+	bstAdd(root, 125);
+	bstAdd(root, 111);
+	bstAdd(root, 150);
+	
 }
