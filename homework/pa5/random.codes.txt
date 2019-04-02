@@ -1,0 +1,5 @@
+apple:1
+mango:100
+cherry:10
+banana:0
+grape:11
